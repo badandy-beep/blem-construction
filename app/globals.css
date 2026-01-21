@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-size: 18px; color: #1A1A1A; background-color: #FFFFFF; }
+::selection { background-color: #C17F59; color: #FFF; }
+a:hover { opacity: 0.85; }
+button:hover { opacity: 0.9; }
+
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+  section { padding: 60px 5% !important; }
+  h1 { font-size: 38px !important; }
+  h2 { font-size: 32px !important; }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#FFFFFF"/>
+  <text x="100" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="80" font-weight="bold" fill="#1B365D">MB</text>
+  <line x1="50" y1="130" x2="150" y2="130" stroke="#C17F59" stroke-width="2"/>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" letter-spacing="3" fill="#1B365D">MICHAEL BLEM</text>
+  <text x="100" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" letter-spacing="4" fill="#C17F59">CONSTRUCTION</text>
+</svg>
