@@ -66,12 +66,12 @@ export default function Header() {
           </Link>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mobile-menu-btn" style={{ display: 'none', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', padding: '10px', color: '#1C2B39', zIndex: 1001, minWidth: '44px', minHeight: '44px', alignItems: 'center', justifyContent: 'center' }} aria-label="Toggle menu">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ display: isMobile ? 'flex' : 'none', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', padding: '10px', color: '#1C2B39', zIndex: 1001, minWidth: '44px', minHeight: '44px', alignItems: 'center', justifyContent: 'center' }} aria-label="Toggle menu">
             {mobileMenuOpen ? '✕' : '☰'}
           </button>
 
           {/* Desktop Navigation */}
-          <div className="desktop-nav" style={{ display: 'flex', gap: '24px', alignItems: 'center', fontFamily: "'Outfit', sans-serif", fontSize: '14px', fontWeight: 500 }}>
+          <div style={{ display: isMobile ? 'none' : 'flex', gap: '24px', alignItems: 'center', fontFamily: "'Outfit', sans-serif", fontSize: '14px', fontWeight: 500 }}>
             {navItems.map((item) => (
               item.dropdown ? (
                 <div key={item.name} style={{ position: 'relative' }} onMouseEnter={() => setActiveDropdown(item.name)} onMouseLeave={() => setActiveDropdown(null)}>
@@ -136,13 +136,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-
-      <style jsx global>{\`
-        @media (max-width: 1024px) {
-          .desktop-nav { display: none !important; }
-          .mobile-menu-btn { display: flex !important; }
-        }
-      \`}</style>
     </>
   );
 }
