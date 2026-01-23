@@ -1,0 +1,22 @@
+PROJECT: Michael Blem Construction - Mobile Header Fix
+DATE: 2026-Jan-23
+VERSION: 4.2.0
+
+CONTENTS:
+---------
+1. components/Header.js - Fixed header component with mobile text-only logo
+2. README-MOBILE-FIX.md - Installation instructions
+3. _manifest.txt - This file
+
+CHANGES:
+--------
+- Mobile (< 768px): Removed monogram, shows "MICHAEL BLEM CONSTRUCTION" text only
+- Desktop (> 768px): Unchanged - shows monogram + text
+- Logo/text click navigates to home page (/)
+- Mobile menu drawer shows full logo with monogram
+
+INSTALLATION:
+-------------
+Replace your existing components/Header.js with the one in this package.
+
+© 2026 Noetic Dharma Group, LLC | www.noeticdharma.com
