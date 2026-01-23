@@ -43,15 +43,89 @@ export default function Header() {
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000, backgroundColor: isScrolled ? 'rgba(255,255,255,0.98)' : '#FFFFFF', boxShadow: isScrolled ? '0 4px 20px rgba(28,43,57,0.1)' : 'none', transition: 'all 0.3s ease' }}>
         <div style={{ height: '4px', background: '#B8860B' }} />
         
-        <nav style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: isMobile ? '10px 16px' : (isScrolled ? '8px 4%' : '12px 4%'), maxWidth: '1600px', margin: '0 auto', width: '100%', minHeight: isMobile ? '56px' : (isScrolled ? '60px' : '70px'), transition: 'all 0.3s ease' }}>
+        <nav style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: isMobile ? 'space-between' : 'space-between', 
+          padding: isMobile ? '8px 16px' : (isScrolled ? '8px 4%' : '12px 4%'), 
+          maxWidth: '1600px', 
+          margin: '0 auto', 
+          width: '100%', 
+          minHeight: isMobile ? '60px' : (isScrolled ? '60px' : '70px'), 
+          transition: 'all 0.3s ease',
+          position: 'relative'
+        }}>
           
-          {/* Logo - Links to Home */}
-          <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: isMobile ? '0' : '12px', flexShrink: 0 }} onClick={() => setMobileMenuOpen(false)}>
+          {/* Mobile: Hamburger on LEFT */}
+          {isMobile && (
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+              style={{ 
+                background: 'none', 
+                border: 'none', 
+                fontSize: '26px', 
+                cursor: 'pointer', 
+                padding: '8px', 
+                color: '#1C2B39', 
+                zIndex: 1001, 
+                minWidth: '44px', 
+                minHeight: '44px', 
+                display: 'flex',
+                alignItems: 'center', 
+                justifyContent: 'center',
+                flexShrink: 0
+              }} 
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? '✕' : '☰'}
+            </button>
+          )}
+          
+          {/* Logo - CENTERED on mobile, left-aligned on desktop */}
+          <Link 
+            href="/" 
+            style={{ 
+              textDecoration: 'none', 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: isMobile ? '0' : '12px', 
+              flexShrink: 0,
+              position: isMobile ? 'absolute' : 'relative',
+              left: isMobile ? '50%' : 'auto',
+              transform: isMobile ? 'translateX(-50%)' : 'none'
+            }} 
+            onClick={() => setMobileMenuOpen(false)}
+          >
             {isMobile ? (
-              /* MOBILE: Text only - NO monogram */
-              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
-                <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px', fontWeight: 700, color: '#1C2B39', letterSpacing: '0.02em' }}>MICHAEL BLEM</span>
-                <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '9px', fontWeight: 600, color: '#B8860B', letterSpacing: '0.2em', textTransform: 'uppercase' }}>CONSTRUCTION</span>
+              /* MOBILE: Centered text logo - LARGER and PROMINENT */
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center',
+                lineHeight: 1.1,
+                textAlign: 'center'
+              }}>
+                <span style={{ 
+                  fontFamily: "'Playfair Display', Georgia, serif", 
+                  fontSize: '22px', 
+                  fontWeight: 700, 
+                  color: '#1C2B39', 
+                  letterSpacing: '0.02em',
+                  whiteSpace: 'nowrap'
+                }}>
+                  MICHAEL BLEM
+                </span>
+                <span style={{ 
+                  fontFamily: "'Montserrat', sans-serif", 
+                  fontSize: '10px', 
+                  fontWeight: 600, 
+                  color: '#B8860B', 
+                  letterSpacing: '0.22em', 
+                  textTransform: 'uppercase',
+                  marginTop: '2px'
+                }}>
+                  CONSTRUCTION
+                </span>
               </div>
             ) : (
               /* DESKTOP: Monogram + Full Text */
@@ -65,10 +139,10 @@ export default function Header() {
             )}
           </Link>
 
-          {/* Mobile Menu Button */}
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ display: isMobile ? 'flex' : 'none', background: 'none', border: 'none', fontSize: '24px', cursor: 'pointer', padding: '10px', color: '#1C2B39', zIndex: 1001, minWidth: '44px', minHeight: '44px', alignItems: 'center', justifyContent: 'center' }} aria-label="Toggle menu">
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
+          {/* Mobile: Spacer on RIGHT to balance hamburger */}
+          {isMobile && (
+            <div style={{ width: '44px', height: '44px', flexShrink: 0 }} />
+          )}
 
           {/* Desktop Navigation */}
           <div style={{ display: isMobile ? 'none' : 'flex', gap: '24px', alignItems: 'center', fontFamily: "'Outfit', sans-serif", fontSize: '14px', fontWeight: 500 }}>
