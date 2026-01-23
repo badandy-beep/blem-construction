@@ -1,7 +1,45 @@
 'use client';
 /* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
 import Link from 'next/link';
-import { downloads } from '@/lib/data';
+
+const downloads = [
+  {
+    name: "Company Overview Deck",
+    description: "Comprehensive presentation featuring our capabilities, portfolio highlights, and approach.",
+    type: "PDF",
+    size: "4.2 MB",
+    icon: "📊",
+    file: null,
+    available: false
+  },
+  {
+    name: "Michael Blem Resume",
+    description: "Detailed professional background, credentials, and 40+ year career timeline.",
+    type: "PDF",
+    size: "241 KB",
+    icon: "📄",
+    file: "/downloads/MBC-MichaelBlem-Resume.pdf",
+    available: true
+  },
+  {
+    name: "Services Brochure",
+    description: "Overview of commercial and residential services with project examples.",
+    type: "PDF",
+    size: "3.5 MB",
+    icon: "📋",
+    file: null,
+    available: false
+  },
+  {
+    name: "Florida Building Code Guide",
+    description: "Essential guide for understanding Florida's construction requirements.",
+    type: "PDF",
+    size: "2.1 MB",
+    icon: "📘",
+    file: null,
+    available: false
+  }
+];
 
 export default function DownloadsPage() {
   return (
@@ -19,16 +57,51 @@ export default function DownloadsPage() {
             <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '28px', fontWeight: 600, color: '#1C2B39', marginBottom: '32px' }}>Business Materials</h2>
             
             {downloads.map((item, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '28px', backgroundColor: '#F8F6F3', borderRadius: '12px', marginBottom: '16px', border: '1px solid #E5E7EB' }}>
+              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '24px', padding: '28px', backgroundColor: '#F8F6F3', borderRadius: '12px', marginBottom: '16px', border: '1px solid #E5E7EB', opacity: item.available ? 1 : 0.7 }}>
                 <div style={{ fontSize: '40px' }}>{item.icon}</div>
                 <div style={{ flex: 1 }}>
                   <h3 style={{ fontSize: '18px', fontWeight: 600, color: '#1C2B39', marginBottom: '6px' }}>{item.name}</h3>
                   <p style={{ fontSize: '14px', color: '#4A5568', marginBottom: '4px' }}>{item.description}</p>
                   <span style={{ fontSize: '12px', color: '#9CA3AF' }}>{item.type} • {item.size}</span>
                 </div>
-                <button style={{ backgroundColor: '#1C2B39', color: '#FFFFFF', padding: '14px 28px', border: 'none', borderRadius: '8px', fontFamily: "'Montserrat', sans-serif", fontSize: '12px', fontWeight: 600, letterSpacing: '1px', cursor: 'pointer' }}>
-                  DOWNLOAD
-                </button>
+                {item.available ? (
+                  <a 
+                    href={item.file}
+                    download
+                    style={{ 
+                      backgroundColor: '#1C2B39', 
+                      color: '#FFFFFF', 
+                      padding: '14px 28px', 
+                      border: 'none', 
+                      borderRadius: '8px', 
+                      fontFamily: "'Montserrat', sans-serif", 
+                      fontSize: '12px', 
+                      fontWeight: 600, 
+                      letterSpacing: '1px', 
+                      cursor: 'pointer',
+                      textDecoration: 'none',
+                      display: 'inline-block',
+                      transition: 'background-color 0.2s ease'
+                    }}
+                    onMouseOver={(e) => e.target.style.backgroundColor = '#B8860B'}
+                    onMouseOut={(e) => e.target.style.backgroundColor = '#1C2B39'}
+                  >
+                    DOWNLOAD
+                  </a>
+                ) : (
+                  <span style={{ 
+                    backgroundColor: '#E5E7EB', 
+                    color: '#9CA3AF', 
+                    padding: '14px 28px', 
+                    borderRadius: '8px', 
+                    fontFamily: "'Montserrat', sans-serif", 
+                    fontSize: '12px', 
+                    fontWeight: 600, 
+                    letterSpacing: '1px'
+                  }}>
+                    COMING SOON
+                  </span>
+                )}
               </div>
             ))}
           </div>
