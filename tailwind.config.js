@@ -29,6 +29,14 @@ module.exports = {
       boxShadow: {
         'card': '0 8px 40px rgba(28, 43, 57, 0.08)',
       },
+      screens: {
+        'xs': '375px',
+        'sm': '480px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1400px',
+      },
     },
   },
   plugins: [],

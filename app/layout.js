@@ -9,6 +9,12 @@ export const metadata = {
   description: 'Third-generation master builder serving Southwest Florida for 40+ years. From custom homes to $13M commercial projects. Zero claims record. Direct owner access. AI-powered efficiency for 20-30% cost savings. Licensed CGC 1508400, CBC 047796.',
   keywords: 'construction, contractor, Sarasota, Southwest Florida, custom homes, commercial construction, remodeling, storm restoration, hurricane resistant, Florida builder',
   authors: [{ name: 'Michael Blem Construction' }],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
   openGraph: {
     title: 'Michael Blem Construction | Building Legacies Since 1987',
     description: 'Third-generation master builder. 40+ years of excellence in Southwest Florida. Half the cost of mega-builders with double the quality.',
@@ -25,6 +31,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/logo-primary.svg" />
         <meta name="theme-color" content="#1C2B39" />
+        <meta name="format-detection" content="telephone=no" />
         {/* Brand Package Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -33,9 +40,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet" 
         />
       </head>
-      <body>
+      <body style={{ overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
         <Header />
-        <main>{children}</main>
+        <main style={{ overflowX: 'hidden' }}>{children}</main>
         <Footer />
         {/* NDG Attribution */}
         <script

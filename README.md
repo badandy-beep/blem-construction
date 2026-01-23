@@ -1,52 +1,45 @@
-# Michael Blem Construction - Enhanced Website v4.0
+# Michael Blem Construction - Mobile Optimized Website v4.1
 
-A premium Next.js website for Michael Blem Construction, a third-generation master builder serving Southwest Florida since 1987.
+A premium, mobile-responsive Next.js website for Michael Blem Construction, a third-generation master builder serving Southwest Florida since 1987.
 
-## Website Revamp Summary
+## Mobile Optimization Summary
 
-This comprehensive revamp focuses on:
+This version includes comprehensive mobile responsiveness fixes:
 
-### Targeted Messaging
-- **Commercial customers**: ROI, timelines, compliance, scale, and cost efficiencies
-- **Residential customers**: Personalization, family legacies, storm resilience, satisfaction
-- **Core message**: Half the cost of mega-builders with double the quality
+### Key Improvements
 
-### Key Features
-- ✅ Multi-page Next.js structure with dropdown navigation
-- ✅ Comparison tables (Blem vs. Mega-Builders)
-- ✅ FAQ sections segmented by persona (Commercial/Residential)
-- ✅ Sector-specific color accents (Steel Blue for Commercial, Sage Green for Residential)
-- ✅ Downloads page for business materials
-- ✅ Password-protected Client Portal
-- ✅ Enhanced blog with category filtering
-- ✅ Mobile-responsive design
+1. **Responsive Hook (`useResponsive`)** - All pages use a consistent responsive system
+2. **Flexible Layouts** - Grid systems that collapse properly on mobile
+3. **Touch-Friendly** - 44px minimum touch targets for all interactive elements
+4. **No Horizontal Overflow** - Content properly contained within viewport
+5. **Readable Typography** - Font sizes scale appropriately (32px-56px headlines)
+6. **Mobile Navigation** - Slide-out drawer menu with proper z-index handling
+7. **Responsive Tables** - Stack into cards on mobile devices
+8. **Form Optimization** - 16px font sizes to prevent iOS zoom
 
-### Brand Package Colors
-- **Charcoal Navy** (#1C2B39) - Primary headers, logo, navigation
-- **Antique Gold** (#B8860B) - CTAs, highlights, accents
-- **Bright Gold** (#D4A012) - Logo corners, hover states
-- **Warm Slate** (#4A5568) - Body text, secondary elements
-- **Warm White** (#F8F6F3) - Backgrounds, cards
-- **Residential Sage** (#6B8E73) - Residential section accent
-- **Commercial Steel** (#64748B) - Commercial section accent
+### Breakpoints
 
-### Typography
-- **Playfair Display** - Headlines, logo wordmark, hero text
-- **Outfit** - Body text, navigation, buttons, UI elements
-- **Montserrat** - Labels, tags, "CONSTRUCTION" sub-line
+- **Desktop**: > 768px
+- **Tablet**: 481px - 768px  
+- **Mobile**: ≤ 480px
+
+### CSS Classes
+
+- `.grid-2`, `.grid-3`, `.grid-4` - Responsive grid systems
+- `.hide-mobile` / `.show-mobile` - Visibility utilities
+- `.hide-small-mobile` - Hide on phones < 480px
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 (React)
-- **Styling**: Tailwind CSS + CSS-in-JS
-- **Animations**: Framer Motion
+- **Styling**: Tailwind CSS + Responsive inline styles
 - **Fonts**: Google Fonts (Playfair Display, Outfit, Montserrat)
 - **Deployment**: Vercel
 
 ## Project Structure
 
-\`\`\`
-blem-construction-revamp/
+```
+blem-construction-mobile-optimized/
 ├── app/
 │   ├── about/page.js
 │   ├── blog/page.js
@@ -66,16 +59,17 @@ blem-construction-revamp/
 │   ├── Logo.js
 │   └── SocialIcons.js
 ├── lib/
-│   └── data.js
+│   ├── data.js
+│   └── useResponsive.js    # NEW: Responsive helper hook
 ├── public/
 │   ├── favicon.svg
 │   └── logo-primary.svg
 └── package.json
-\`\`\`
+```
 
 ## Getting Started
 
-\`\`\`bash
+```bash
 # Install dependencies
 npm install
 
@@ -87,17 +81,44 @@ npm run build
 
 # Start production server
 npm start
-\`\`\`
+```
+
+## Brand Package Colors
+
+- **Charcoal Navy** (#1C2B39) - Primary headers, logo, navigation
+- **Antique Gold** (#B8860B) - CTAs, highlights, accents
+- **Bright Gold** (#D4A012) - Logo corners, hover states
+- **Warm Slate** (#4A5568) - Body text, secondary elements
+- **Warm White** (#F8F6F3) - Backgrounds, cards
+- **Residential Sage** (#6B8E73) - Residential section accent
+- **Commercial Steel** (#64748B) - Commercial section accent
 
 ## Client Portal Access
 
 Password: `blem2026`
 
+## Testing Mobile
+
+Test the site on these devices/simulators:
+
+1. iPhone SE (375px)
+2. iPhone 12/13/14 (390px)
+3. iPhone 12/13/14 Pro Max (428px)
+4. iPad Mini (768px)
+5. iPad Pro (1024px)
+
+Check for:
+- No horizontal scrolling
+- All text readable without zooming
+- All buttons/links easily tappable
+- Forms don't trigger zoom on iOS
+- Navigation menu works smoothly
+
 ## License & Ownership
 
 © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com
 
-CONFIDENTIAL & PROPRIETARY - This project contains confidential, proprietary, and trade secret information belonging exclusively to Noetic Dharma Group, LLC. Unauthorized review, distribution, copying, or disclosure is strictly prohibited.
+CONFIDENTIAL & PROPRIETARY - This project contains confidential, proprietary, and trade secret information belonging exclusively to Noetic Dharma Group, LLC.
 
 ---
 

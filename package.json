@@ -1,6 +1,6 @@
 {
-  "name": "blem-construction-enhanced",
-  "version": "4.0.0",
+  "name": "blem-construction-mobile-optimized",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

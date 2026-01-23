@@ -1,17 +1,28 @@
 'use client';
 /* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { LogoFooter } from './Logo';
 import SocialIcons from './SocialIcons';
-import { navItems, colors } from '@/lib/data';
 
 export default function Footer() {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const rs = (desktop, mobile) => isMobile ? mobile : desktop;
+
   return (
     <footer 
       style={{ 
         backgroundColor: '#1C2B39',
-        padding: '60px 40px',
+        padding: rs('60px 40px', '40px 16px'),
         color: '#FFFFFF',
       }}
     >
@@ -22,19 +33,20 @@ export default function Footer() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '50px',
-            marginBottom: '40px',
+            gap: rs('50px', '0'),
+            marginBottom: rs('40px', '30px'),
+            flexDirection: isMobile ? 'column' : 'row',
           }}
         >
-          {/* Left Logo */}
-          <LogoFooter size={55} className="hide-mobile" />
+          {/* Left Logo - Desktop only */}
+          {!isMobile && <LogoFooter size={55} />}
           
           {/* Center Content */}
           <div style={{ textAlign: 'center', flex: 1, maxWidth: '500px' }}>
             <h3 
               style={{ 
                 fontFamily: "'Playfair Display', Georgia, serif",
-                fontSize: '26px',
+                fontSize: rs('26px', '22px'),
                 fontWeight: 700,
                 marginBottom: '8px',
               }}
@@ -43,7 +55,7 @@ export default function Footer() {
             </h3>
             <p 
               style={{ 
-                fontSize: '14px',
+                fontSize: rs('14px', '13px'),
                 color: '#B8860B',
                 marginBottom: '16px',
                 fontFamily: "'Outfit', sans-serif",
@@ -51,15 +63,22 @@ export default function Footer() {
             >
               Crafting Legacies in Southwest Florida Since 1987
             </p>
-            <p 
-              style={{ 
-                fontSize: '14px',
-                color: 'rgba(255,255,255,0.7)',
-                fontFamily: "'Outfit', sans-serif",
-              }}
-            >
-              (941) 777-BLEM&nbsp;&nbsp;|&nbsp;&nbsp;mike@blemconstruction.com
-            </p>
+            
+            {/* Contact Info - Stack on mobile */}
+            <div style={{ 
+              fontSize: rs('14px', '13px'),
+              color: 'rgba(255,255,255,0.7)',
+              fontFamily: "'Outfit', sans-serif",
+              display: 'flex',
+              flexDirection: isMobile ? 'column' : 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: isMobile ? '8px' : '0',
+            }}>
+              <a href="tel:9417772536" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>(941) 777-BLEM</a>
+              {!isMobile && <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>}
+              <a href="mailto:mike@blemconstruction.com" style={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none' }}>mike@blemconstruction.com</a>
+            </div>
             <p 
               style={{ 
                 fontSize: '13px',
@@ -81,7 +100,7 @@ export default function Footer() {
               style={{ 
                 display: 'flex',
                 justifyContent: 'center',
-                gap: '24px',
+                gap: rs('24px', '16px'),
                 marginTop: '24px',
                 paddingTop: '24px',
                 borderTop: '1px solid rgba(255,255,255,0.1)',
@@ -93,14 +112,15 @@ export default function Footer() {
                   key={item}
                   href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                   style={{ 
-                    fontSize: '13px',
+                    fontSize: rs('13px', '12px'),
                     color: 'rgba(255,255,255,0.6)',
                     textDecoration: 'none',
                     fontFamily: "'Outfit', sans-serif",
-                    transition: 'color 0.2s ease',
+                    padding: '8px 0',
+                    minHeight: '44px',
+                    display: 'flex',
+                    alignItems: 'center',
                   }}
-                  onMouseEnter={(e) => e.target.style.color = '#B8860B'}
-                  onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.6)'}
                 >
                   {item}
                 </Link>
@@ -108,8 +128,8 @@ export default function Footer() {
             </div>
           </div>
           
-          {/* Right Logo */}
-          <LogoFooter size={55} className="hide-mobile" />
+          {/* Right Logo - Desktop only */}
+          {!isMobile && <LogoFooter size={55} />}
         </div>
 
         {/* License Info */}
@@ -117,7 +137,7 @@ export default function Footer() {
           style={{ 
             display: 'flex',
             justifyContent: 'center',
-            gap: '40px',
+            gap: rs('40px', '24px'),
             marginBottom: '30px',
             paddingBottom: '30px',
             borderBottom: '1px solid rgba(255,255,255,0.1)',
