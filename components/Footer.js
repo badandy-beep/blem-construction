@@ -1,49 +1,193 @@
 'use client';
+/* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
+
 import Link from 'next/link';
-import { colors, navItems } from '@/lib/data';
+import { LogoFooter } from './Logo';
+import SocialIcons from './SocialIcons';
+import { navItems, colors } from '@/lib/data';
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#1A1A1A', padding: '70px 5% 50px', color: '#FFF' }}>
+    <footer 
+      style={{ 
+        backgroundColor: '#1C2B39',
+        padding: '60px 40px',
+        color: '#FFFFFF',
+      }}
+    >
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-        <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: '40px', marginBottom: '60px' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-              <img src="/BLEM-Logo-Monogram.svg" alt="MB" style={{ height: '50px', filter: 'brightness(0) invert(1)' }} />
-              <div style={{ borderLeft: `2px solid ${colors.accent}`, paddingLeft: '16px' }}>
-                <div style={{ fontSize: '28px', fontWeight: '700', fontFamily: "'Dancing Script', cursive" }}>Michael Blem</div>
-                <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '10px', letterSpacing: '4px', color: colors.accent, fontWeight: '600', marginTop: '2px' }}>CONSTRUCTION</div>
-              </div>
+        {/* Main Footer Content */}
+        <div 
+          style={{ 
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '50px',
+            marginBottom: '40px',
+          }}
+        >
+          {/* Left Logo */}
+          <LogoFooter size={55} className="hide-mobile" />
+          
+          {/* Center Content */}
+          <div style={{ textAlign: 'center', flex: 1, maxWidth: '500px' }}>
+            <h3 
+              style={{ 
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: '26px',
+                fontWeight: 700,
+                marginBottom: '8px',
+              }}
+            >
+              Michael Blem Construction
+            </h3>
+            <p 
+              style={{ 
+                fontSize: '14px',
+                color: '#B8860B',
+                marginBottom: '16px',
+                fontFamily: "'Outfit', sans-serif",
+              }}
+            >
+              Crafting Legacies in Southwest Florida Since 1987
+            </p>
+            <p 
+              style={{ 
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.7)',
+                fontFamily: "'Outfit', sans-serif",
+              }}
+            >
+              (941) 777-BLEM&nbsp;&nbsp;|&nbsp;&nbsp;mike@blemconstruction.com
+            </p>
+            <p 
+              style={{ 
+                fontSize: '13px',
+                color: 'rgba(255,255,255,0.5)',
+                fontFamily: "'Outfit', sans-serif",
+                marginTop: '8px',
+              }}
+            >
+              Nokomis, FL 34275 • Serving All of Southwest Florida
+            </p>
+            
+            {/* Social Media Icons */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+              <SocialIcons size={22} />
             </div>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: "'Montserrat', sans-serif", lineHeight: 1.7 }}>Third-generation craftsmanship serving Southwest Florida for over 40 years.</p>
-          </div>
-          <div>
-            <div style={{ color: colors.accent, letterSpacing: '3px', marginBottom: '24px', textTransform: 'uppercase', fontWeight: '700', fontSize: '11px', fontFamily: "'Montserrat', sans-serif" }}>Navigation</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              {navItems.map((item) => (<Link key={item.name} href={item.href} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '14px' }}>{item.name}</Link>))}
+            
+            {/* Navigation Links */}
+            <div 
+              style={{ 
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '24px',
+                marginTop: '24px',
+                paddingTop: '24px',
+                borderTop: '1px solid rgba(255,255,255,0.1)',
+                flexWrap: 'wrap',
+              }}
+            >
+              {['Home', 'Commercial', 'Residential', 'Projects', 'About', 'Contact'].map((item) => (
+                <Link 
+                  key={item}
+                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                  style={{ 
+                    fontSize: '13px',
+                    color: 'rgba(255,255,255,0.6)',
+                    textDecoration: 'none',
+                    fontFamily: "'Outfit', sans-serif",
+                    transition: 'color 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => e.target.style.color = '#B8860B'}
+                  onMouseLeave={(e) => e.target.style.color = 'rgba(255,255,255,0.6)'}
+                >
+                  {item}
+                </Link>
+              ))}
             </div>
           </div>
-          <div>
-            <div style={{ color: colors.accent, letterSpacing: '3px', marginBottom: '24px', textTransform: 'uppercase', fontWeight: '700', fontSize: '11px', fontFamily: "'Montserrat', sans-serif" }}>Contact</div>
-            <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '14px', color: 'rgba(255,255,255,0.6)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <div>Nokomis, FL 34275</div>
-              <div>(941) 777-BLEM</div>
-              <div>mike@blemconstruction.com</div>
+          
+          {/* Right Logo */}
+          <LogoFooter size={55} className="hide-mobile" />
+        </div>
+
+        {/* License Info */}
+        <div 
+          style={{ 
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '40px',
+            marginBottom: '30px',
+            paddingBottom: '30px',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+            flexWrap: 'wrap',
+          }}
+        >
+          <div style={{ textAlign: 'center' }}>
+            <div 
+              style={{ 
+                fontSize: '11px',
+                letterSpacing: '2px',
+                color: '#B8860B',
+                fontFamily: "'Montserrat', sans-serif",
+                textTransform: 'uppercase',
+                marginBottom: '4px',
+              }}
+            >
+              General Contractor
+            </div>
+            <div 
+              style={{ 
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.8)',
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 600,
+              }}
+            >
+              CGC 1508400
             </div>
           </div>
-          <div>
-            <div style={{ color: colors.accent, letterSpacing: '3px', marginBottom: '24px', textTransform: 'uppercase', fontWeight: '700', fontSize: '11px', fontFamily: "'Montserrat', sans-serif" }}>Licenses</div>
-            <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '13px' }}>
-              <div style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '6px' }}>CGC 1508400</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', marginBottom: '16px' }}>General Contractor</div>
-              <div style={{ color: 'rgba(255,255,255,0.6)', marginBottom: '6px' }}>CBC 047796</div>
-              <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px' }}>Building Contractor</div>
+          <div style={{ textAlign: 'center' }}>
+            <div 
+              style={{ 
+                fontSize: '11px',
+                letterSpacing: '2px',
+                color: '#B8860B',
+                fontFamily: "'Montserrat', sans-serif",
+                textTransform: 'uppercase',
+                marginBottom: '4px',
+              }}
+            >
+              Building Contractor
+            </div>
+            <div 
+              style={{ 
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.8)',
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 600,
+              }}
+            >
+              CBC 047796
             </div>
           </div>
         </div>
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '36px', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>© 2026 Michael Blem Construction. All rights reserved.</div>
-          <div style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px', color: 'rgba(255,255,255,0.4)' }}>Serving Southwest Florida for 40+ Years</div>
+
+        {/* Copyright */}
+        <div 
+          style={{ 
+            textAlign: 'center',
+            fontSize: '12px',
+            color: 'rgba(255,255,255,0.5)',
+            fontFamily: "'Outfit', sans-serif",
+          }}
+        >
+          © 2026 Michael Blem Construction. All Rights Reserved.
+          <br />
+          <span style={{ fontSize: '11px', marginTop: '4px', display: 'inline-block' }}>
+            Licenses: CGC 1508400 | CBC 047796
+          </span>
         </div>
       </div>
     </footer>

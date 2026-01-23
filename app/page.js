@@ -1,93 +1,248 @@
 'use client';
+/* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { colors, stats, testimonials, innovations, manifesto } from '@/lib/data';
+import { LogoMonogram } from '@/components/Logo';
+import { stats, testimonials, innovations, manifesto, featured, comparisonData } from '@/lib/data';
 
 export default function HomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
-  useEffect(() => { const timer = setInterval(() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length), 6000); return () => clearInterval(timer); }, []);
+  
+  useEffect(() => {
+    const timer = setInterval(() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length), 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <div style={{ fontFamily: "'Georgia', serif", backgroundColor: colors.background, color: colors.text }}>
-      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '160px 5% 100px', position: 'relative', backgroundImage: 'url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(135deg, rgba(27,54,93,0.92) 0%, rgba(27,54,93,0.75) 100%)' }} />
+    <div style={{ fontFamily: "'Outfit', sans-serif", backgroundColor: '#FFFFFF', color: '#1C2B39' }}>
+      
+      {/* HERO SECTION */}
+      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '160px 5% 100px', position: 'relative', backgroundImage: 'url(https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=1080&fit=crop)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(145deg, rgba(28,43,57,0.92) 0%, rgba(28,43,57,0.8) 50%, rgba(28,43,57,0.75) 100%)' }} />
+        
         <div style={{ position: 'relative', zIndex: 1, maxWidth: '1400px', margin: '0 auto', width: '100%' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}><div style={{ width: '60px', height: '2px', backgroundColor: colors.accent }} /><span style={{ fontSize: '13px', letterSpacing: '4px', color: colors.accent, fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase', fontWeight: '600' }}>Since 1987</span></div>
-          <h1 style={{ fontSize: '62px', fontWeight: '400', color: '#FFF', marginBottom: '24px', lineHeight: 1.1, maxWidth: '800px' }}>Crafting Legacies in<br />Southwest Florida</h1>
-          <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.9)', maxWidth: '650px', marginBottom: '44px', lineHeight: 1.85, fontFamily: "'Montserrat', sans-serif", fontWeight: '300' }}>Third-generation craftsmanship. Over 40 years of excellence. From custom homes to $13M hotel developments, we build with integrity.</p>
-          <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-            <Link href="/contact" style={{ backgroundColor: colors.accent, color: '#FFF', padding: '20px 44px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: '700', textTransform: 'uppercase' }}>Start Your Project</Link>
-            <Link href="/projects" style={{ backgroundColor: 'transparent', color: '#FFF', padding: '20px 44px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: '600', textTransform: 'uppercase', border: '2px solid rgba(255,255,255,0.4)' }}>View Our Work</Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
+            <div style={{ width: '60px', height: '2px', backgroundColor: '#B8860B' }} />
+            <span style={{ fontSize: '13px', letterSpacing: '4px', color: '#D4A012', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase', fontWeight: 600 }}>Since 1987</span>
           </div>
-          <div style={{ marginTop: '60px', display: 'flex', gap: '40px' }}>
-            <div style={{ borderLeft: '2px solid rgba(255,255,255,0.3)', paddingLeft: '20px' }}><div style={{ fontSize: '11px', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase' }}>License</div><div style={{ fontSize: '18px', color: '#FFF', fontFamily: "'Montserrat', sans-serif", fontWeight: '600', marginTop: '4px' }}>CGC 1508400</div></div>
-            <div style={{ borderLeft: '2px solid rgba(255,255,255,0.3)', paddingLeft: '20px' }}><div style={{ fontSize: '11px', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase' }}>License</div><div style={{ fontSize: '18px', color: '#FFF', fontFamily: "'Montserrat', sans-serif", fontWeight: '600', marginTop: '4px' }}>CBC 047796</div></div>
+          
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '56px', fontWeight: 600, color: '#FFFFFF', marginBottom: '24px', lineHeight: 1.15, maxWidth: '850px' }}>
+            Building Legacies with Precision and Integrity
+          </h1>
+          
+          <p style={{ fontSize: '20px', color: 'rgba(255,255,255,0.9)', maxWidth: '700px', marginBottom: '32px', lineHeight: 1.8, fontWeight: 300 }}>
+            Third-generation Sarasota builder delivering tailored commercial, industrial, municipal, and residential solutions. <strong style={{ color: '#D4A012' }}>Zero claims in 40 years</strong>—combine AI innovation with personal accountability for lower costs and maximum satisfaction.
+          </p>
+          
+          <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', marginBottom: '40px', maxWidth: '600px' }}>
+            {stats.map((s, i) => (
+              <div key={i} style={{ textAlign: 'left' }}>
+                <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '32px', fontWeight: 600, color: '#D4A012' }}>{s.number}</div>
+                <div style={{ fontSize: '11px', letterSpacing: '1px', color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', fontFamily: "'Montserrat', sans-serif" }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ marginBottom: '24px' }}>
+            <p style={{ fontSize: '14px', color: '#D4A012', fontFamily: "'Montserrat', sans-serif", fontWeight: 600, marginBottom: '16px', letterSpacing: '1px' }}>CHOOSE YOUR PATH:</p>
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <Link href="/commercial" style={{ backgroundColor: '#64748B', color: '#FFFFFF', padding: '18px 32px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '2px', fontWeight: 700, textTransform: 'uppercase', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '20px' }}>🏢</span> Commercial
+              </Link>
+              <Link href="/residential" style={{ backgroundColor: '#6B8E73', color: '#FFFFFF', padding: '18px 32px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '2px', fontWeight: 700, textTransform: 'uppercase', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '20px' }}>🏡</span> Residential
+              </Link>
+            </div>
+          </div>
+          
+          <div style={{ display: 'flex', gap: '40px', marginTop: '40px' }}>
+            <div style={{ borderLeft: '2px solid rgba(255,255,255,0.3)', paddingLeft: '20px' }}>
+              <div style={{ fontSize: '11px', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase' }}>General Contractor</div>
+              <div style={{ fontSize: '16px', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 600, marginTop: '4px' }}>CGC 1508400</div>
+            </div>
+            <div style={{ borderLeft: '2px solid rgba(255,255,255,0.3)', paddingLeft: '20px' }}>
+              <div style={{ fontSize: '11px', letterSpacing: '2px', color: 'rgba(255,255,255,0.5)', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase' }}>Building Contractor</div>
+              <div style={{ fontSize: '16px', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontWeight: 600, marginTop: '4px' }}>CBC 047796</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section style={{ backgroundColor: colors.primary, padding: '50px 5%' }}>
-        <div className="grid-4" style={{ maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '40px' }}>
-          {stats.map((s, i) => (<div key={i} style={{ textAlign: 'center', borderRight: i < 3 ? '1px solid rgba(255,255,255,0.15)' : 'none', padding: '10px 0' }}><div style={{ fontSize: '52px', fontWeight: '400', color: '#FFF', marginBottom: '8px' }}>{s.number}</div><div style={{ fontSize: '12px', letterSpacing: '3px', color: colors.accent, textTransform: 'uppercase', fontFamily: "'Montserrat', sans-serif", fontWeight: '600' }}>{s.label}</div></div>))}
+      {/* WHY CHOOSE BLEM - COMPARISON TABLE */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#FFFFFF' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase', fontWeight: 600 }}>The Blem Difference</span>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '42px', fontWeight: 600, color: '#1C2B39', marginTop: '16px', marginBottom: '16px' }}>Why Choose Michael Blem Construction?</h2>
+            <p style={{ fontSize: '18px', color: '#4A5568', maxWidth: '700px', margin: '0 auto' }}>Like a personal doctor vs. big hospital—better results at lower costs.</p>
+          </div>
+          
+          {/* Comparison Table */}
+          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(28,43,57,0.1)', marginBottom: '40px' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+              <thead>
+                <tr>
+                  <th style={{ backgroundColor: '#1C2B39', color: '#FFFFFF', padding: '18px 24px', fontFamily: "'Montserrat', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textAlign: 'left', width: '20%' }}>Aspect</th>
+                  <th style={{ backgroundColor: '#4A5568', color: '#FFFFFF', padding: '18px 24px', fontFamily: "'Montserrat', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textAlign: 'left', width: '40%' }}>Mega-Builders</th>
+                  <th style={{ backgroundColor: '#B8860B', color: '#FFFFFF', padding: '18px 24px', fontFamily: "'Montserrat', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', textAlign: 'left', width: '40%' }}>Michael Blem Construction</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonData.map((row, i) => (
+                  <tr key={i} style={{ backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8F6F3' }}>
+                    <td style={{ padding: '16px 24px', fontSize: '14px', fontWeight: 600, color: '#1C2B39', borderBottom: '1px solid #E5E7EB' }}>{row.aspect}</td>
+                    <td style={{ padding: '16px 24px', fontSize: '14px', color: '#6B7280', borderBottom: '1px solid #E5E7EB' }}>{row.megaBuilders}</td>
+                    <td style={{ padding: '16px 24px', fontSize: '14px', color: '#1C2B39', fontWeight: 500, borderBottom: '1px solid #E5E7EB' }}>{row.blem}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          
+          {/* Factoid Box */}
+          <div style={{ background: 'linear-gradient(135deg, #1C2B39 0%, #243342 100%)', padding: '28px 32px', borderRadius: '12px', borderLeft: '4px solid #D4A012', display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <div style={{ fontSize: '32px' }}>💡</div>
+            <div>
+              <p style={{ fontSize: '18px', color: '#FFFFFF', fontWeight: 500, margin: 0 }}>"Half the Cost, Double the Quality"</p>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', margin: '8px 0 0 0' }}>Like charter schools vs. public—better value through personalized attention and lean operations.</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section style={{ padding: '100px 5%', backgroundColor: colors.lightGray }}>
+      {/* QUICK SERVICES TEASER */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}><h2 style={{ fontSize: '42px', fontWeight: '400', color: colors.primary, marginBottom: '20px' }}>Choose Your Project Type</h2></div>
+          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '42px', fontWeight: 600, color: '#1C2B39', marginBottom: '20px' }}>Our Expertise</h2>
+            <p style={{ fontSize: '18px', color: '#4A5568', maxWidth: '600px', margin: '0 auto' }}>Excellence in every structure, tailored to your specific needs</p>
+          </div>
+          
           <div className="grid-2" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
             <Link href="/commercial" style={{ textDecoration: 'none' }}>
-              <div style={{ backgroundColor: colors.background, padding: '50px', border: `1px solid ${colors.mediumGray}`, cursor: 'pointer' }}>
-                <div style={{ fontSize: '60px', marginBottom: '24px' }}>🏢</div>
-                <h3 style={{ fontSize: '28px', fontWeight: '500', color: colors.primary, marginBottom: '16px', fontFamily: "'Montserrat', sans-serif" }}>Commercial / Industrial</h3>
-                <p style={{ fontSize: '16px', lineHeight: 1.75, color: colors.textLight, marginBottom: '24px', fontFamily: "'Montserrat', sans-serif", fontWeight: '300' }}>Tailored retrofits and new builds for businesses, focusing on efficiency, compliance, and scalability. Reference our $13M Candlewood Suites project.</p>
-                <div style={{ fontSize: '14px', color: colors.accent, fontFamily: "'Montserrat', sans-serif", fontWeight: '700' }}>Explore Commercial Services →</div>
+              <div style={{ backgroundColor: '#FFFFFF', padding: '50px', borderRadius: '16px', border: '1px solid #E5E7EB', boxShadow: '0 8px 40px rgba(28,43,57,0.08)', transition: 'all 0.3s ease', borderTop: '4px solid #64748B' }}>
+                <div style={{ width: '80px', height: '80px', backgroundColor: '#64748B', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                  <span style={{ fontSize: '40px' }}>🏢</span>
+                </div>
+                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '28px', fontWeight: 600, color: '#1C2B39', marginBottom: '12px' }}>Commercial / Industrial</h3>
+                <p style={{ fontSize: '14px', color: '#64748B', fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: '1px', marginBottom: '16px' }}>BUILT TO PERFORM</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#4A5568', marginBottom: '20px' }}>ROI-focused builds for industrial, commercial, and municipal clients. 95% on-time delivery, 20-30% cost savings via AI/BIM. From $13M hotels to $2.8M pumping stations.</p>
+                <div style={{ fontSize: '14px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>Explore Commercial Services →</div>
               </div>
             </Link>
+
             <Link href="/residential" style={{ textDecoration: 'none' }}>
-              <div style={{ backgroundColor: colors.background, padding: '50px', border: `1px solid ${colors.mediumGray}`, cursor: 'pointer' }}>
-                <div style={{ fontSize: '60px', marginBottom: '24px' }}>🏡</div>
-                <h3 style={{ fontSize: '28px', fontWeight: '500', color: colors.primary, marginBottom: '16px', fontFamily: "'Montserrat', sans-serif" }}>Residential</h3>
-                <p style={{ fontSize: '16px', lineHeight: 1.75, color: colors.textLight, marginBottom: '24px', fontFamily: "'Montserrat', sans-serif", fontWeight: '300' }}>Custom homes and remodels designed for comfort and resilience. See our $1.5M Winston Palms Condominium for examples.</p>
-                <div style={{ fontSize: '14px', color: colors.accent, fontFamily: "'Montserrat', sans-serif", fontWeight: '700' }}>Explore Residential Services →</div>
+              <div style={{ backgroundColor: '#FFFFFF', padding: '50px', borderRadius: '16px', border: '1px solid #E5E7EB', boxShadow: '0 8px 40px rgba(28,43,57,0.08)', transition: 'all 0.3s ease', borderTop: '4px solid #6B8E73' }}>
+                <div style={{ width: '80px', height: '80px', backgroundColor: '#6B8E73', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+                  <span style={{ fontSize: '40px' }}>🏡</span>
+                </div>
+                <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '28px', fontWeight: 600, color: '#1C2B39', marginBottom: '12px' }}>Residential</h3>
+                <p style={{ fontSize: '14px', color: '#6B8E73', fontFamily: "'Montserrat', sans-serif", fontWeight: 600, letterSpacing: '1px', marginBottom: '16px' }}>YOUR VISION, OUR CRAFTSMANSHIP</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#4A5568', marginBottom: '20px' }}>Personalized builds at half the cost of mega-communities. Storm-resilient designs, direct Mike access, VR walkthroughs. 200+ homes, 98% budget adherence.</p>
+                <div style={{ fontSize: '14px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>Explore Residential Services →</div>
               </div>
             </Link>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '100px 5%', backgroundColor: colors.cream }}>
+      {/* TECHNOLOGY SECTION */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#1C2B39' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '32px', fontWeight: '400', color: colors.primary, marginBottom: '40px', textAlign: 'center' }}>Our Commitment</h3>
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '42px', fontWeight: 600, color: '#FFFFFF', marginBottom: '16px' }}>Technology & Innovation</h2>
+            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto' }}>Modern methods delivering 20-30% cost savings without compromising quality</p>
+          </div>
+          
           <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
-            {manifesto.slice(0, 4).map((item, i) => (<div key={i} style={{ padding: '28px', backgroundColor: colors.background, borderLeft: `3px solid ${colors.accent}` }}><h4 style={{ fontSize: '16px', fontWeight: '600', color: colors.primary, marginBottom: '12px', fontFamily: "'Montserrat', sans-serif" }}>{item.title}</h4><p style={{ fontSize: '14px', color: colors.textLight, fontFamily: "'Montserrat', sans-serif", fontWeight: '300', lineHeight: 1.65 }}>{item.description}</p></div>))}
+            {innovations.map((item, i) => (
+              <div key={i} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '36px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px' }}>
+                <div style={{ fontSize: '44px', marginBottom: '20px' }}>{item.icon}</div>
+                <h3 style={{ fontSize: '17px', fontWeight: 600, color: '#FFFFFF', marginBottom: '14px', fontFamily: "'Montserrat', sans-serif" }}>{item.name}</h3>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', lineHeight: 1.65, marginBottom: '16px' }}>{item.description}</p>
+                <div style={{ fontSize: '13px', color: '#D4A012', fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>{item.savings} Savings</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Cost Savings Factoid */}
+          <div style={{ marginTop: '50px', textAlign: 'center', padding: '32px', background: 'rgba(212, 160, 18, 0.1)', borderRadius: '12px', border: '1px solid rgba(212, 160, 18, 0.3)' }}>
+            <p style={{ fontSize: '20px', color: '#FFFFFF', fontWeight: 500, margin: 0 }}>
+              <span style={{ color: '#D4A012', fontWeight: 700 }}>Save 20-30%</span> with AI Optimization + <span style={{ color: '#D4A012', fontWeight: 700 }}>15% More</span> with Direct Owner Access = <span style={{ color: '#D4A012', fontWeight: 700 }}>Total 35% Savings</span> vs. Competitors
+            </p>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '100px 5%', backgroundColor: colors.primary }}>
+      {/* FEATURED PROJECTS */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '42px', fontWeight: '400', color: '#FFF', marginBottom: '40px', textAlign: 'center' }}>Technology & Innovation</h2>
-          <div className="grid-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
-            {innovations.map((item, i) => (<div key={i} style={{ backgroundColor: 'rgba(255,255,255,0.05)', padding: '36px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.1)' }}><div style={{ fontSize: '44px', marginBottom: '20px' }}>{item.icon}</div><h3 style={{ fontSize: '17px', fontWeight: '600', color: '#FFF', marginBottom: '14px', fontFamily: "'Montserrat', sans-serif" }}>{item.name}</h3><p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.7)', fontFamily: "'Montserrat', sans-serif", fontWeight: '300', lineHeight: 1.65 }}>{item.description}</p></div>))}
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '42px', fontWeight: 600, color: '#1C2B39', marginBottom: '16px' }}>Featured Projects</h2>
+            <p style={{ fontSize: '18px', color: '#4A5568', maxWidth: '600px', margin: '0 auto' }}>$500M+ in project value delivered across Southwest Florida and beyond</p>
+          </div>
+          
+          <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
+            {featured.slice(0, 3).map((p, i) => (
+              <div key={i} style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(28,43,57,0.08)' }}>
+                <img src={p.img} alt={p.name} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <div style={{ padding: '28px' }}>
+                  <div style={{ fontSize: '11px', color: '#B8860B', marginBottom: '10px', fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>{p.type} • {p.value}</div>
+                  <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '20px', color: '#1C2B39', fontWeight: 600, marginBottom: '8px' }}>{p.name}</div>
+                  <div style={{ fontSize: '14px', color: '#4A5568' }}>{p.location}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <Link href="/projects" style={{ backgroundColor: '#1C2B39', color: '#FFFFFF', padding: '18px 40px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '2px', fontWeight: 600, textTransform: 'uppercase', borderRadius: '8px', display: 'inline-block' }}>View All Projects</Link>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '100px 5%', backgroundColor: colors.background }}>
+      {/* COMMITMENTS/MANIFESTO */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#FFFFFF' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <span style={{ fontSize: '12px', letterSpacing: '3px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", textTransform: 'uppercase', fontWeight: 600 }}>Innovative Builds Rooted in Tradition</span>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '42px', fontWeight: 600, color: '#1C2B39', marginTop: '16px' }}>Our Commitment to Excellence</h2>
+          </div>
+          
+          <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+            {manifesto.slice(0, 6).map((item, i) => (
+              <div key={i} style={{ padding: '32px', backgroundColor: '#F8F6F3', borderLeft: '3px solid #B8860B', borderRadius: '0 16px 16px 0' }}>
+                <div style={{ fontSize: '12px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", fontWeight: 700, marginBottom: '12px' }}>0{i + 1}</div>
+                <h4 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '18px', fontWeight: 600, color: '#1C2B39', marginBottom: '12px' }}>{item.title}</h4>
+                <p style={{ fontSize: '15px', color: '#4A5568', lineHeight: 1.7 }}>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section style={{ padding: '100px 5%', backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '400', color: colors.primary, marginBottom: '40px' }}>Client Voices</h2>
-          <div style={{ fontSize: '30px', color: colors.primary, lineHeight: 1.6, marginBottom: '40px', fontStyle: 'italic' }}>"{testimonials[activeTestimonial].quote}"</div>
-          <div style={{ fontSize: '18px', color: colors.accent, fontFamily: "'Montserrat', sans-serif", fontWeight: '700' }}>{testimonials[activeTestimonial].author}</div>
-          <div style={{ fontSize: '14px', color: colors.textLight, fontFamily: "'Montserrat', sans-serif", marginTop: '6px' }}>{testimonials[activeTestimonial].project}</div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '40px' }}>{testimonials.map((_, i) => (<button key={i} onClick={() => setActiveTestimonial(i)} style={{ width: '14px', height: '14px', borderRadius: '50%', border: 'none', backgroundColor: i === activeTestimonial ? colors.accent : colors.mediumGray, cursor: 'pointer' }} />))}</div>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '36px', fontWeight: 600, color: '#1C2B39', marginBottom: '50px' }}>Client Voices</h2>
+          <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '26px', color: '#1C2B39', lineHeight: 1.6, marginBottom: '40px', fontStyle: 'italic' }}>"{testimonials[activeTestimonial].quote}"</div>
+          <div style={{ fontSize: '18px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", fontWeight: 700 }}>{testimonials[activeTestimonial].author}</div>
+          <div style={{ fontSize: '14px', color: '#4A5568', marginTop: '6px' }}>{testimonials[activeTestimonial].project}</div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '40px' }}>
+            {testimonials.map((_, i) => (
+              <button key={i} onClick={() => setActiveTestimonial(i)} style={{ width: '14px', height: '14px', borderRadius: '50%', border: 'none', backgroundColor: i === activeTestimonial ? '#B8860B' : '#E5E7EB', cursor: 'pointer' }} aria-label={`View testimonial ${i + 1}`} />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section style={{ padding: '80px 5%', backgroundColor: colors.accent }}>
+      {/* CTA SECTION */}
+      <section style={{ padding: '80px 5%', backgroundColor: '#B8860B' }}>
         <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '36px', fontWeight: '400', color: '#FFF', marginBottom: '24px' }}>Ready to Build Your Legacy?</h2>
-          <Link href="/contact" style={{ display: 'inline-block', backgroundColor: colors.primary, color: '#FFF', padding: '20px 50px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: '700', textTransform: 'uppercase' }}>Schedule Consultation</Link>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '36px', fontWeight: 600, color: '#FFFFFF', marginBottom: '24px' }}>Ready to Build Your Legacy?</h2>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', marginBottom: '32px', maxWidth: '600px', margin: '0 auto 32px' }}>Let's discuss your vision. Schedule a free consultation with Mike today.</p>
+          <Link href="/contact" style={{ display: 'inline-block', backgroundColor: '#1C2B39', color: '#FFFFFF', padding: '20px 50px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: 700, textTransform: 'uppercase', borderRadius: '8px' }}>Schedule Free Consultation</Link>
         </div>
       </section>
     </div>

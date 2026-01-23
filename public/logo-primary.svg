@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- © 2026 Noetic Dharma Group, LLC | CONFIDENTIAL & PROPRIETARY -->
+  <!-- Primary MB Monogram with Ornate Gold Frame - G6 Version -->
+  
+  <!-- Navy Background -->
+  <rect x="20" y="20" width="160" height="160" fill="#1C2B39"/>
+  
+  <!-- Gold Border -->
+  <rect x="20" y="20" width="160" height="160" stroke="#B8860B" stroke-width="2.5" fill="none"/>
+  
+  <!-- Ornate Corner Flourishes - Bright Gold -->
+  <path d="M20 48 Q20 20 48 20" stroke="#D4A012" stroke-width="3" fill="none"/>
+  <path d="M152 20 Q180 20 180 48" stroke="#D4A012" stroke-width="3" fill="none"/>
+  <path d="M180 152 Q180 180 152 180" stroke="#D4A012" stroke-width="3" fill="none"/>
+  <path d="M48 180 Q20 180 20 152" stroke="#D4A012" stroke-width="3" fill="none"/>
+  
+  <!-- Corner Dots - Antique Gold -->
+  <circle cx="20" cy="20" r="4" fill="#B8860B"/>
+  <circle cx="180" cy="20" r="4" fill="#B8860B"/>
+  <circle cx="180" cy="180" r="4" fill="#B8860B"/>
+  <circle cx="20" cy="180" r="4" fill="#B8860B"/>
+  
+  <!-- MB Monogram - Playfair Display Style -->
+  <text x="100" y="115" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="64" font-weight="700" fill="white">MB</text>
+</svg>

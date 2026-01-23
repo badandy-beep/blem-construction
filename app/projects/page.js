@@ -1,7 +1,8 @@
 'use client';
+/* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
 import { useState } from 'react';
 import Link from 'next/link';
-import { colors, featured, projects } from '@/lib/data';
+import { featured, projects } from '@/lib/data';
 
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -11,33 +12,61 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'Georgia', serif", backgroundColor: colors.background, color: colors.text, paddingTop: '120px' }}>
-      <section style={{ padding: '60px 5%', backgroundColor: colors.lightGray }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", backgroundColor: '#FFFFFF', color: '#1C2B39', paddingTop: '120px' }}>
+      <section style={{ padding: '60px 5%', backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ fontSize: '52px', fontWeight: '400', color: colors.primary, marginBottom: '20px' }}>Completed Projects</h1>
-          <p style={{ fontSize: '18px', color: colors.textLight, maxWidth: '800px', margin: '0 auto', fontFamily: "'Montserrat', sans-serif", fontWeight: '300', lineHeight: 1.7 }}>Over $50M+ in projects completed across Southwest Florida and beyond.</p>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '52px', fontWeight: 600, color: '#1C2B39', marginBottom: '20px' }}>Completed Projects</h1>
+          <p style={{ fontSize: '18px', color: '#4A5568', maxWidth: '800px', margin: '0 auto' }}>Over $500M+ in projects completed across Southwest Florida and beyond.</p>
         </div>
       </section>
-      <section style={{ padding: '80px 5%', backgroundColor: colors.background }}>
+
+      <section style={{ padding: '80px 5%', backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '400', color: colors.primary, marginBottom: '40px', textAlign: 'center' }}>Featured Projects</h2>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '36px', fontWeight: 600, color: '#1C2B39', marginBottom: '40px', textAlign: 'center' }}>Featured Projects</h2>
           <div className="grid-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '28px' }}>
-            {featured.map((p, i) => (<div key={i} style={{ backgroundColor: colors.lightGray, overflow: 'hidden' }}><img src={p.img} alt={p.name} style={{ width: '100%', height: '280px', objectFit: 'cover' }} /><div style={{ padding: '28px' }}><div style={{ fontSize: '11px', color: colors.accent, marginBottom: '10px', fontFamily: "'Montserrat', sans-serif", fontWeight: '700', letterSpacing: '2px', textTransform: 'uppercase' }}>{p.type} • {p.value}</div><div style={{ fontSize: '20px', color: colors.primary, fontWeight: '500', marginBottom: '8px' }}>{p.name}</div><div style={{ fontSize: '14px', color: colors.textLight, fontFamily: "'Montserrat', sans-serif" }}>{p.location}</div></div></div>))}
+            {featured.map((p, i) => (
+              <div key={i} style={{ backgroundColor: '#F8F6F3', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(28,43,57,0.08)' }}>
+                <img src={p.img} alt={p.name} style={{ width: '100%', height: '220px', objectFit: 'cover' }} />
+                <div style={{ padding: '28px' }}>
+                  <div style={{ fontSize: '11px', color: '#B8860B', marginBottom: '10px', fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>{p.type} • {p.value}</div>
+                  <div style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '20px', color: '#1C2B39', fontWeight: 600, marginBottom: '8px' }}>{p.name}</div>
+                  <div style={{ fontSize: '14px', color: '#4A5568', marginBottom: '12px' }}>{p.location}</div>
+                  <p style={{ fontSize: '14px', color: '#4A5568', lineHeight: 1.6 }}>{p.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <section style={{ padding: '80px 5%', backgroundColor: colors.lightGray }}>
+
+      <section style={{ padding: '80px 5%', backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginBottom: '40px', flexWrap: 'wrap' }}>
-            {[{ key: 'all', label: 'All' }, { key: 'hotel', label: 'Hotel' }, { key: 'municipal', label: 'Municipal' }, { key: 'commercial', label: 'Commercial' }, { key: 'residential', label: 'Residential' }].map((c) => (<button key={c.key} onClick={() => setActiveCategory(c.key)} style={{ padding: '14px 28px', border: activeCategory === c.key ? 'none' : '1px solid ' + colors.mediumGray, backgroundColor: activeCategory === c.key ? colors.primary : colors.background, color: activeCategory === c.key ? '#FFF' : colors.text, fontFamily: "'Montserrat', sans-serif", fontSize: '13px', cursor: 'pointer', fontWeight: '600' }}>{c.label}</button>))}
+            {[{ key: 'all', label: 'All' }, { key: 'hotel', label: 'Hotel' }, { key: 'municipal', label: 'Municipal' }, { key: 'commercial', label: 'Commercial' }, { key: 'residential', label: 'Residential' }].map((c) => (
+              <button key={c.key} onClick={() => setActiveCategory(c.key)} style={{ padding: '14px 28px', border: activeCategory === c.key ? 'none' : '1px solid #E5E7EB', backgroundColor: activeCategory === c.key ? '#1C2B39' : '#FFFFFF', color: activeCategory === c.key ? '#FFFFFF' : '#1C2B39', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', cursor: 'pointer', fontWeight: 600, borderRadius: '8px' }}>{c.label}</button>
+            ))}
           </div>
-          <div style={{ backgroundColor: colors.background, border: '1px solid ' + colors.mediumGray, overflow: 'hidden' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 120px', padding: '18px 32px', backgroundColor: colors.primary, color: '#FFF', fontFamily: "'Montserrat', sans-serif", fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: '700' }}><div>Project</div><div>Location</div><div style={{ textAlign: 'right' }}>Value</div></div>
-            {getProjects().map((p, i) => (<div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 120px', padding: '20px 32px', borderBottom: '1px solid ' + colors.lightGray, fontFamily: "'Montserrat', sans-serif" }}><div style={{ fontSize: '15px', color: colors.primary, fontWeight: '500' }}>{p.name}</div><div style={{ fontSize: '14px', color: colors.textLight }}>{p.location}</div><div style={{ fontSize: '15px', color: colors.accent, textAlign: 'right', fontWeight: '600' }}>{p.value}</div></div>))}
+          <div style={{ backgroundColor: '#FFFFFF', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(28,43,57,0.08)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 120px', padding: '18px 32px', backgroundColor: '#1C2B39', color: '#FFFFFF', fontFamily: "'Montserrat', sans-serif", fontSize: '11px', letterSpacing: '3px', textTransform: 'uppercase', fontWeight: 700 }}>
+              <div>Project</div><div>Location</div><div style={{ textAlign: 'right' }}>Value</div>
+            </div>
+            {getProjects().map((p, i) => (
+              <div key={i} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 120px', padding: '20px 32px', borderBottom: '1px solid #F8F6F3', backgroundColor: i % 2 === 0 ? '#FFFFFF' : '#F8F6F3' }}>
+                <div style={{ fontSize: '15px', color: '#1C2B39', fontWeight: 500 }}>{p.name}</div>
+                <div style={{ fontSize: '14px', color: '#4A5568' }}>{p.location}</div>
+                <div style={{ fontSize: '15px', color: '#B8860B', textAlign: 'right', fontWeight: 600 }}>{p.value}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <section style={{ padding: '80px 5%', backgroundColor: colors.accent }}><div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}><h2 style={{ fontSize: '36px', fontWeight: '400', color: '#FFF', marginBottom: '24px' }}>Have a Project in Mind?</h2><Link href="/contact" style={{ display: 'inline-block', backgroundColor: colors.primary, color: '#FFF', padding: '20px 50px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: '700', textTransform: 'uppercase' }}>Start Your Project</Link></div></section>
+
+      <section style={{ padding: '80px 5%', backgroundColor: '#B8860B' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '36px', fontWeight: 600, color: '#FFFFFF', marginBottom: '24px' }}>Have a Project in Mind?</h2>
+          <Link href="/contact" style={{ display: 'inline-block', backgroundColor: '#1C2B39', color: '#FFFFFF', padding: '20px 50px', textDecoration: 'none', fontFamily: "'Montserrat', sans-serif", fontSize: '13px', letterSpacing: '3px', fontWeight: 700, textTransform: 'uppercase', borderRadius: '8px' }}>Start Your Project</Link>
+        </div>
+      </section>
     </div>
   );
 }
