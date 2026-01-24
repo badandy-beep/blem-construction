@@ -700,3 +700,67 @@ img {
     display: none !important;
   }
 }
+
+/* =====================================================
+   GOLD CALL-OUT BOX (per dev instructions)
+   ===================================================== */
+
+.gold-callout {
+  background: var(--antique-gold);
+  color: #FFFFFF;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.gold-callout p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   PROFESSIONAL SVG ICON STYLING
+   ===================================================== */
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(184, 134, 11, 0.1);
+  border: 2px solid var(--antique-gold);
+  border-radius: 12px;
+}
+
+.icon-container svg {
+  transition: transform 0.3s ease;
+}
+
+.icon-container:hover svg {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   ENHANCED READABILITY FOR 40+ DEMOGRAPHIC
+   ===================================================== */
+
+@media (min-width: 769px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 { font-size: clamp(36px, 5vw, 56px); }
+  h2 { font-size: clamp(28px, 4vw, 42px); }
+  h3 { font-size: clamp(20px, 3vw, 28px); }
+  
+  p {
+    max-width: 70ch;
+  }
+}
+
+/* High contrast text - ensure no muted grays */
+.high-contrast-text {
+  color: var(--charcoal-navy);
+}

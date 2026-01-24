@@ -107,7 +107,7 @@ export default function Footer() {
                 flexWrap: 'wrap',
               }}
             >
-              {['Home', 'Commercial', 'Residential', 'Projects', 'About', 'Contact'].map((item) => (
+              {['Home', 'Commercial', 'Residential', 'Projects', 'About', 'Resources', 'Contact'].map((item) => (
                 <Link 
                   key={item}
                   href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
@@ -206,8 +206,26 @@ export default function Footer() {
           © 2026 Michael Blem Construction. All Rights Reserved.
           <br />
           <span style={{ fontSize: '11px', marginTop: '4px', display: 'inline-block' }}>
-            Licenses: CGC 1508400 | CBC 047796
+            Licenses: <span style={{ color: '#D4A012', fontWeight: 600 }}>CGC 1508400</span> | <span style={{ color: '#D4A012', fontWeight: 600 }}>CBC 047796</span>
           </span>
+        </div>
+
+        {/* Disclaimers - per dev instructions */}
+        <div 
+          style={{ 
+            textAlign: 'center',
+            fontSize: '11px',
+            color: 'rgba(255,255,255,0.4)',
+            fontFamily: "'Outfit', sans-serif",
+            marginTop: '20px',
+            paddingTop: '20px',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            maxWidth: '800px',
+            margin: '20px auto 0',
+          }}
+        >
+          All projects subject to Florida regulations. Results vary based on project scope and requirements; consult for specific details. 
+          Michael Blem Construction is an equal opportunity employer.
         </div>
       </div>
     </footer>

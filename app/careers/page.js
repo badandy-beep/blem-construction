@@ -4,6 +4,53 @@ import Link from 'next/link';
 import { useResponsive } from '@/lib/useResponsive';
 import { hiringData } from '@/lib/data';
 
+// Professional SVG Icons to replace emojis
+const Icons = {
+  trophy: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 9H4a2 2 0 01-2-2V5a2 2 0 012-2h2" />
+      <path d="M18 9h2a2 2 0 002-2V5a2 2 0 00-2-2h-2" />
+      <path d="M8 21h8" />
+      <path d="M12 17v4" />
+      <path d="M6 3v6a6 6 0 0012 0V3" />
+    </svg>
+  ),
+  growth: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+      <polyline points="16 7 22 7 22 13" />
+    </svg>
+  ),
+  handshake: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z" />
+      <path d="M2 12h4M18 12h4" />
+      <path d="M12 2v4M12 18v4" />
+    </svg>
+  ),
+  dollar: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+    </svg>
+  ),
+  shield: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <polyline points="9 12 11 14 15 10" />
+    </svg>
+  ),
+  target: (color = '#B8860B', size = 40) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  ),
+};
+
+const benefitIcons = ['trophy', 'growth', 'handshake', 'dollar', 'shield', 'target'];
+
 export default function CareersPage() {
   const { rs, isMobile } = useResponsive();
 
@@ -42,15 +89,27 @@ export default function CareersPage() {
           
           <div style={{ display: 'grid', gridTemplateColumns: rs('repeat(3, 1fr)', '1fr'), gap: '24px' }}>
             {[
-              { icon: '🏆', title: 'Elite Team', desc: 'Work with the best craftsmen in Southwest Florida construction' },
-              { icon: '📈', title: 'Growth', desc: 'Continuous learning and career advancement opportunities' },
-              { icon: '🤝', title: 'Culture', desc: 'Family atmosphere with professional standards and integrity' },
-              { icon: '💰', title: 'Competitive Pay', desc: 'Top-tier compensation for top-tier talent' },
-              { icon: '🛡️', title: 'Stability', desc: '40+ years of continuous operation and growth' },
-              { icon: '🎯', title: 'Impact', desc: 'Build projects that matter to the community' }
+              { icon: 'trophy', title: 'Elite Team', desc: 'Work with the best craftsmen in Southwest Florida construction' },
+              { icon: 'growth', title: 'Growth', desc: 'Continuous learning and career advancement opportunities' },
+              { icon: 'handshake', title: 'Culture', desc: 'Family atmosphere with professional standards and integrity' },
+              { icon: 'dollar', title: 'Competitive Pay', desc: 'Top-tier compensation for top-tier talent' },
+              { icon: 'shield', title: 'Stability', desc: '40+ years of continuous operation and growth' },
+              { icon: 'target', title: 'Impact', desc: 'Build projects that matter to the community' }
             ].map((item, i) => (
               <div key={i} style={{ textAlign: 'center', padding: '24px', backgroundColor: '#FFFFFF', borderRadius: '12px', border: '1px solid #E5E7EB' }}>
-                <div style={{ fontSize: '40px', marginBottom: '16px' }}>{item.icon}</div>
+                <div style={{ 
+                  width: '70px', 
+                  height: '70px', 
+                  backgroundColor: 'rgba(184, 134, 11, 0.1)', 
+                  borderRadius: '12px', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  margin: '0 auto 16px',
+                  border: '2px solid #B8860B'
+                }}>
+                  {Icons[item.icon] && Icons[item.icon]('#B8860B', 32)}
+                </div>
                 <h4 style={{ fontSize: '18px', fontWeight: 600, color: '#1C2B39', marginBottom: '8px' }}>{item.title}</h4>
                 <p style={{ fontSize: '14px', color: '#4A5568', lineHeight: 1.6 }}>{item.desc}</p>
               </div>

@@ -1,56 +1,152 @@
 ================================================================================
-MICHAEL BLEM CONSTRUCTION - WEBSITE v5.0.0
-Aesthetic Revamp Update
+MICHAEL BLEM CONSTRUCTION WEBSITE - v5.1 (Aesthetic Revamp Update)
+Generated: 2026-Jan-24
 ================================================================================
 
-Project: Blem Construction Website Refresh
-Date: 24-Jan-2026
-Version: 5.0.0
+PROJECT: Michael Blem Construction Website
+VERSION: 5.1 - Post-Review Aesthetic Revamp
+DEPLOYMENT: https://blem-construction.vercel.app/
 
-CHANGES IN THIS VERSION:
-─────────────────────────────────────────────────────────────────────────────
-✓ NEW: /careers page ("Join the Navy SEALs of Construction")
-✓ NEW: hiringData in lib/data.js with positions and disclaimers
-✓ UPDATED: navItems now includes Careers link
-✓ UPDATED: globals.css - increased line-height to 1.7 for readability
-✓ UPDATED: Font smoothing for cleaner text rendering
+================================================================================
+CHANGES IN THIS VERSION (v5.1):
+================================================================================
 
-EXISTING PAGES (Already Complete):
-─────────────────────────────────────────────────────────────────────────────
-✓ /resources - Industry resources (commercial, residential, general)
-✓ /client-access - Password-protected portal (password: blem2026)
-✓ /downloads - Business documents and FL building codes
-✓ /blog - Builder's Insights articles
-✓ /commercial - Commercial/industrial services
-✓ /residential - Residential services
-✓ /projects - Project portfolio
-✓ /about - About Michael Blem
-✓ /contact - Contact form
+Based on Developer Instructions for Website Aesthetic Revamp, this update includes:
 
-BRAND SPECIFICATIONS:
-─────────────────────────────────────────────────────────────────────────────
-Typography:
-- Display: Playfair Display (H1: 2.5-3rem, H2: 2rem)
-- Body: Outfit (18px base, line-height 1.7)
-- Accents: Montserrat (uppercase, 600 weight)
+1. HERO SECTION
+   - Updated tagline: "Crafting Legacies with Precision and Integrity Since 1987"
+   - Updated descriptive statement with AI innovation and zero claims highlights
+   - Stats boxes now have gold borders (2px #B8860B) and are more pronounced
+   - CTA buttons enlarged with professional SVG icons replacing emojis
 
-Colors:
-- Charcoal Navy: #1C2B39
-- Antique Gold: #B8860B
-- Warm Slate: #4A5568
-- Residential Sage: #6B8E73
+2. WHY CHOOSE SECTION  
+   - New heading: "Elite Craftsmanship Over Mass Production"
+   - Updated analogy: "bespoke tailor vs fast fashion" messaging
+   - Table has gold header row, improved styling
+   - NEW: Pronounced gold quote call-out box below table
+
+3. OUR EXPERTISE SECTION
+   - Updated statements: Commercial "ROI-driven builds", Residential "Your Vision, Our Mastery"
+   - Professional SVG icons replacing emojis
+   - Cards have sector-colored borders (steel for commercial, sage for residential)
+
+4. TECHNOLOGY SECTION
+   - Professional SVG icons replacing robot/ruler emojis
+   - Gold badge styling for savings percentages
+   - NEW: Total savings summary "35%+ Through Innovation"
+
+5. FEATURED PROJECTS
+   - Gold value overlays on project images ($13M, etc.)
+   - Consistent card styling with shadows
+
+6. NOW HIRING BANNER (NEW SECTION)
+   - Full-width navy banner after Featured Projects
+   - "Navy SEALs of Construction" messaging
+   - Position tags with gold borders
+   - Professional users icon
+   - Equal opportunity disclaimer
+
+7. COMMITMENT TO EXCELLENCE
+   - Alternating gold call-out boxes (odd items)
+   - NEW: Sidebar sticky quote box on desktop
+   - Quote: "Rooted in Tradition, Powered by Innovation"
+
+8. CLIENT VOICES / TESTIMONIALS
+   - Full gold call-out box for testimonial
+   - Professional quote icon
+   - More pronounced styling
+
+9. RESOURCES & DOWNLOADS (NEW SECTION)
+   - Combined section on homepage
+   - Industry resources links (AGC, NAHB, Florida Building Code, OSHA)
+   - Downloads with gold buttons and download icons
+
+10. FOOTER UPDATES
+    - Added "Resources" to navigation links
+    - License numbers now in gold (#D4A012)
+    - NEW: Disclaimer text about Florida regulations and equal opportunity
+
+11. GLOBAL CHANGES
+    - All emojis replaced with professional SVG icons
+    - NEW .gold-callout CSS class
+    - Enhanced icon styling with hover effects
+    - Improved readability for 40+ demographic
+
+================================================================================
+FILE STRUCTURE:
+================================================================================
+
+blem-construction-main/
+├── _manifest.txt              <- This file
+├── README.md                  <- Project documentation
+├── README-MOBILE-FIX.md       <- Mobile optimization notes
+├── package.json               <- Dependencies
+├── next.config.js             <- Next.js configuration
+├── postcss.config.js          <- PostCSS configuration
+├── tailwind.config.js         <- Tailwind configuration
+├── jsconfig.json              <- JS path aliases
+│
+├── app/
+│   ├── layout.js              <- Root layout with Header/Footer
+│   ├── page.js                <- *** UPDATED *** Homepage with all revamp changes
+│   ├── globals.css            <- *** UPDATED *** Global styles + gold-callout class
+│   ├── about/page.js          <- About page
+│   ├── blog/page.js           <- Blog placeholder
+│   ├── careers/page.js        <- *** UPDATED *** Careers with SVG icons
+│   ├── client-access/page.js  <- Client portal
+│   ├── commercial/page.js     <- Commercial services
+│   ├── contact/page.js        <- Contact form
+│   ├── downloads/page.js      <- Downloads page
+│   ├── projects/page.js       <- Projects gallery
+│   ├── residential/page.js    <- Residential services
+│   └── resources/page.js      <- Resources page
+│
+├── components/
+│   ├── Header.js              <- Navigation header
+│   ├── Footer.js              <- *** UPDATED *** Footer with Resources link + disclaimers
+│   ├── Logo.js                <- Logo components
+│   └── SocialIcons.js         <- Social media icons
+│
+├── lib/
+│   ├── data.js                <- Content data and configuration
+│   └── useResponsive.js       <- Responsive hook
+│
+└── public/
+    ├── favicon.svg            <- Favicon
+    ├── logo-primary.svg       <- Primary logo
+    ├── BLEM-Logo-Monogram.svg <- Monogram logo
+    ├── downloads/             <- Downloadable files
+    │   └── MBC-MichaelBlem-Resume.pdf
+    └── images/                <- Project images
+        ├── candlewood-suites.jpg
+        ├── englewood-sports-complex.jpg
+        └── holiday-inn-express.jpg
+
+================================================================================
+DEPLOYMENT NOTES:
+================================================================================
+
+This ZIP file is ready to upload to GitHub. Steps:
+1. Delete existing blem-construction-main folder contents in repo
+2. Extract this ZIP
+3. Upload blem-construction-main folder contents to repo root
+4. Vercel will auto-deploy from main branch
+
+================================================================================
+BRAND COLORS (Unchanged):
+================================================================================
+
+Primary Palette:
+- Charcoal Navy: #1C2B39 (headers, text)
+- Antique Gold: #B8860B (call-outs, CTAs)
+- Bright Gold: #D4A012 (highlights, accents)
+- Warm Slate: #4A5568 (body text)
+
+Sector Accents:
 - Commercial Steel: #64748B
+- Residential Sage: #6B8E73
 
-DEPLOYMENT:
-─────────────────────────────────────────────────────────────────────────────
-1. Upload to GitHub
-2. Connect to Vercel
-3. Deploy
-
-LICENSES:
-─────────────────────────────────────────────────────────────────────────────
-CGC 1508400 | CBC 047796
-
+================================================================================
 © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com
 CONFIDENTIAL & PROPRIETARY
 ================================================================================
