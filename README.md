@@ -1,36 +1,41 @@
-# MBC Update Package - 23-Jan-2026
+# Michael Blem Construction - Website v5.0.0
 
-## Quick Install
+## Quick Start
 
-Unzip and copy these folders directly into your project root:
-- `components/` → replaces Header.js (centered mobile logo)
-- `public/images/` → adds 3 project photos
-
-## Then update lib/data.js
-
-Find the `featured` array and change these image URLs:
-
-```javascript
-// Candlewood Suites - change img to:
-img: "/images/candlewood-suites.jpg",
-
-// Englewood Sports Complex - change img to:
-img: "/images/englewood-sports-complex.jpg",
-
-// Holiday Inn Express - change img to:
-img: "/images/holiday-inn-express.jpg",
+```bash
+npm install
+npm run dev
 ```
 
-## What Changed
+Open [http://localhost:3000](http://localhost:3000)
 
-**Header.js:**
-- Mobile logo now CENTERED and LARGER
-- Hamburger menu on LEFT side
+## Deploy to Vercel
 
-**Images (800x600, 4:3 ratio):**
-- englewood-sports-complex.jpg - aerial map
-- candlewood-suites.jpg - hotel exterior  
-- holiday-inn-express.jpg - hotel exterior
+1. Push to GitHub
+2. Connect repo to Vercel
+3. Deploy
 
----
-© 2026 Noetic Dharma Group, LLC
+## Tech Stack
+
+- Next.js 14.2.3
+- React 18.3.1
+- Tailwind CSS 3.4.3
+- Framer Motion 11.0.0
+
+## Brand Colors
+
+- Charcoal Navy: #1C2B39
+- Antique Gold: #B8860B
+- Warm Slate: #4A5568
+- Residential Sage: #6B8E73
+- Commercial Steel: #64748B
+
+## Fonts
+
+- Playfair Display (headings)
+- Outfit (body)
+- Montserrat (accents/buttons)
+
+## License
+
+© 2026 Michael Blem Construction. All rights reserved.

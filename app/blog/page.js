@@ -1,23 +1,20 @@
 'use client';
-/* © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com | CONFIDENTIAL & PROPRIETARY */
 import { useState } from 'react';
 import { useResponsive } from '@/lib/useResponsive';
 import { blogPosts } from '@/lib/data';
 
 export default function BlogPage() {
-  const { rs, isMobile } = useResponsive();
+  const { rs } = useResponsive();
   const [activeFilter, setActiveFilter] = useState('all');
   const getFilteredPosts = () => activeFilter === 'all' ? blogPosts : blogPosts.filter(p => p.categoryType === activeFilter);
-
   return (
-    <div style={{ fontFamily: "'Outfit', sans-serif", backgroundColor: '#FFFFFF', color: '#1C2B39', paddingTop: rs('120px', '100px') }}>
+    <div style={{ fontFamily: "'Outfit', sans-serif", backgroundColor: '#FFFFFF', paddingTop: rs('120px', '100px') }}>
       <section style={{ padding: rs('60px 5%', '40px 16px'), backgroundColor: '#F8F6F3' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: rs('52px', '32px'), fontWeight: 600, color: '#1C2B39', marginBottom: '20px' }}>Builder's Insights</h1>
+          <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: rs('52px', '32px'), fontWeight: 600, marginBottom: '20px' }}>Builder's Insights</h1>
           <p style={{ fontSize: rs('18px', '15px'), color: '#4A5568' }}>40 years of hard-won wisdom from Mike's desk.</p>
         </div>
       </section>
-
       <section style={{ padding: rs('60px 5%', '40px 16px'), backgroundColor: '#FFFFFF' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'center', gap: rs('12px', '8px'), marginBottom: '50px', flexWrap: 'wrap' }}>
@@ -34,7 +31,7 @@ export default function BlogPage() {
                     <span style={{ fontSize: '11px', color: '#B8860B', fontFamily: "'Montserrat', sans-serif", fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' }}>{post.category}</span>
                     <span style={{ fontSize: '12px', color: '#9CA3AF' }}>{post.date}</span>
                   </div>
-                  <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: rs('20px', '18px'), fontWeight: 600, color: '#1C2B39', marginBottom: '16px', lineHeight: 1.4 }}>{post.title}</h3>
+                  <h3 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: rs('20px', '18px'), fontWeight: 600, marginBottom: '16px', lineHeight: 1.4 }}>{post.title}</h3>
                   <p style={{ fontSize: rs('15px', '14px'), color: '#4A5568', lineHeight: 1.7 }}>{post.excerpt}</p>
                 </div>
               </article>

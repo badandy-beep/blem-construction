@@ -1,22 +1,71 @@
-PROJECT: Michael Blem Construction - Mobile Header Fix
-DATE: 2026-Jan-23
-VERSION: 4.2.0
+================================================================================
+MICHAEL BLEM CONSTRUCTION - WEBSITE v5.0.0
+Aesthetic Revamp Package
+================================================================================
+
+Project: Blem Construction Website Refresh
+Date: 24-Jan-2026
+Version: 5.0.0
 
 CONTENTS:
----------
-1. components/Header.js - Fixed header component with mobile text-only logo
-2. README-MOBILE-FIX.md - Installation instructions
-3. _manifest.txt - This file
+─────────────────────────────────────────────────────────────────────────────
+/app/                          Next.js App Router pages
+  ├── layout.js               Root layout with Header/Footer
+  ├── page.js                 Homepage (hero, comparison, services, tech)
+  ├── globals.css             Global styles (WCAG AA compliant)
+  ├── about/page.js           About Michael Blem
+  ├── blog/page.js            Builder's Insights blog
+  ├── careers/page.js         NOW HIRING section (Navy SEALs positioning)
+  ├── client-access/page.js   Password-protected client portal
+  ├── commercial/page.js      Commercial/Industrial services
+  ├── contact/page.js         Contact form with project types
+  ├── downloads/page.js       Business documents & FL building codes
+  ├── projects/page.js        Project portfolio with filtering
+  ├── residential/page.js     Residential services
+  └── resources/page.js       Industry resources
 
-CHANGES:
---------
-- Mobile (< 768px): Removed monogram, shows "MICHAEL BLEM CONSTRUCTION" text only
-- Desktop (> 768px): Unchanged - shows monogram + text
-- Logo/text click navigates to home page (/)
-- Mobile menu drawer shows full logo with monogram
+/components/                   Reusable components
+  ├── Header.js               Mobile-optimized nav (centered logo on mobile)
+  ├── Footer.js               Site footer with licenses
+  ├── Logo.js                 LogoMonogram variants
+  └── SocialIcons.js          Social media icons
 
-INSTALLATION:
--------------
-Replace your existing components/Header.js with the one in this package.
+/lib/                          Data and utilities
+  ├── data.js                 All site content (projects, testimonials, etc.)
+  └── useResponsive.js        Responsive helper hook
+
+/public/                       Static assets
+  └── favicon.svg             Site favicon
+
+CONFIG FILES:
+  ├── package.json            Dependencies (Next.js 14.2.3)
+  ├── tailwind.config.js      Brand colors & fonts
+  ├── next.config.js          Next.js configuration
+  ├── postcss.config.js       PostCSS configuration
+  ├── jsconfig.json           Path aliases
+  ├── .gitignore              Git ignore rules
+  └── README.md               Setup instructions
+
+KEY UPDATES IN v5.0.0:
+─────────────────────────────────────────────────────────────────────────────
+✓ Typography: Playfair Display / Outfit / Montserrat (20-30% larger)
+✓ Colors: High contrast WCAG AA compliant
+✓ Layout: 70/30 splits, reduced whitespace (4-6rem sections)
+✓ NEW: Careers page ("Join the Navy SEALs of Construction")
+✓ NEW: "Why Choose" comparison table
+✓ Mobile: Centered logo, hamburger menu, 44px touch targets
+✓ Accessibility: rem units, focus states, ARIA labels
+
+DEPLOYMENT:
+─────────────────────────────────────────────────────────────────────────────
+1. Upload to GitHub
+2. Connect to Vercel
+3. Deploy
+
+LICENSES:
+─────────────────────────────────────────────────────────────────────────────
+CGC 1508400 | CBC 047796
 
 © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com
+CONFIDENTIAL & PROPRIETARY
+================================================================================
