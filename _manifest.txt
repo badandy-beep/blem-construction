@@ -1,22 +1,56 @@
-PROJECT: Michael Blem Construction - Mobile Header Fix
-DATE: 2026-Jan-23
-VERSION: 4.2.0
+================================================================================
+MICHAEL BLEM CONSTRUCTION - WEBSITE v5.0.0
+Aesthetic Revamp Update
+================================================================================
 
-CONTENTS:
----------
-1. components/Header.js - Fixed header component with mobile text-only logo
-2. README-MOBILE-FIX.md - Installation instructions
-3. _manifest.txt - This file
+Project: Blem Construction Website Refresh
+Date: 24-Jan-2026
+Version: 5.0.0
 
-CHANGES:
---------
-- Mobile (< 768px): Removed monogram, shows "MICHAEL BLEM CONSTRUCTION" text only
-- Desktop (> 768px): Unchanged - shows monogram + text
-- Logo/text click navigates to home page (/)
-- Mobile menu drawer shows full logo with monogram
+CHANGES IN THIS VERSION:
+─────────────────────────────────────────────────────────────────────────────
+✓ NEW: /careers page ("Join the Navy SEALs of Construction")
+✓ NEW: hiringData in lib/data.js with positions and disclaimers
+✓ UPDATED: navItems now includes Careers link
+✓ UPDATED: globals.css - increased line-height to 1.7 for readability
+✓ UPDATED: Font smoothing for cleaner text rendering
 
-INSTALLATION:
--------------
-Replace your existing components/Header.js with the one in this package.
+EXISTING PAGES (Already Complete):
+─────────────────────────────────────────────────────────────────────────────
+✓ /resources - Industry resources (commercial, residential, general)
+✓ /client-access - Password-protected portal (password: blem2026)
+✓ /downloads - Business documents and FL building codes
+✓ /blog - Builder's Insights articles
+✓ /commercial - Commercial/industrial services
+✓ /residential - Residential services
+✓ /projects - Project portfolio
+✓ /about - About Michael Blem
+✓ /contact - Contact form
+
+BRAND SPECIFICATIONS:
+─────────────────────────────────────────────────────────────────────────────
+Typography:
+- Display: Playfair Display (H1: 2.5-3rem, H2: 2rem)
+- Body: Outfit (18px base, line-height 1.7)
+- Accents: Montserrat (uppercase, 600 weight)
+
+Colors:
+- Charcoal Navy: #1C2B39
+- Antique Gold: #B8860B
+- Warm Slate: #4A5568
+- Residential Sage: #6B8E73
+- Commercial Steel: #64748B
+
+DEPLOYMENT:
+─────────────────────────────────────────────────────────────────────────────
+1. Upload to GitHub
+2. Connect to Vercel
+3. Deploy
+
+LICENSES:
+─────────────────────────────────────────────────────────────────────────────
+CGC 1508400 | CBC 047796
 
 © 2026 Noetic Dharma Group, LLC | www.noeticdharma.com
+CONFIDENTIAL & PROPRIETARY
+================================================================================
